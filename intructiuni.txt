@@ -1,0 +1,24 @@
+
+
+-------------------1. Asamblarea fișierului în cod obiect (.asm → .o) 
+
+  			nasm -f elf32 -o hello.o hello.asm
+
+
+-------------------2. Link-editarea fișierului cod obiect într-un executabil (.o → ELF) 
+
+			ld -m elf_i386 -o hello hello.o
+			
+-------------------3. Execuție 
+			./hello
+
+-------------------
+
+runAsm (){ nasm -f elf32 -o $1.o $1.asm; ld -m elf_i386 -o $1 $1.o; ./$1; }
+
+-----------------
+ b _start
+ run
+ layout asm
+ si
+ display $eflags
